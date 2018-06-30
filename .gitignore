@@ -1,4 +1,6 @@
 # Distribution / packaging
+__pycache__
+.pytest_cache
 .Python
 env/
 build/
