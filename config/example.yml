@@ -1,0 +1,14 @@
+sync:
+  - schedule:
+      # every 5 minutes (testing only!)
+      rate: cron(0/5 * * * ? *)
+      enabled: true
+      input:
+        services_url: https://core.collectionspace.org/cspace-services
+        authtype: vocabularies
+        refname: urn:cspace:name(materialuse)
+        username: admin@core.collectionspace.org
+        password: Administrator
+        # EXAMPLE USING PARAM STORE:
+        # username: ${ssm:cspace_sas_username~true}
+        # password: ${ssm:cspace_sas_password~true}

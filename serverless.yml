@@ -8,6 +8,12 @@ provider:
 functions:
   sync:
     handler: sas/sync.handler
+    events: ${file(./config/${opt:config, 'example'}.yml):process}
+
+package:
+  exclude:
+    - node_modules/**
+    - venv/**
 
 plugins:
   - serverless-python-requirements

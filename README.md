@@ -9,4 +9,7 @@ pip3 install -r requirements.txt
 
 npm install
 pytest
+
+sls invoke local -f sync -l -p config/example.json
+sls deploy [--aws-profile]
 ```

@@ -1,0 +1,7 @@
+{
+  "services_url": "https://core.collectionspace.org/cspace-services",
+  "authtype": "vocabularies",
+  "refname": "urn:cspace:name(materialuse)",
+  "username": "admin@core.collectionspace.org",
+  "password": "Administrator"
+}
