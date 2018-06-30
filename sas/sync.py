@@ -41,7 +41,13 @@ class CollectionSpaceSyncEvent(object):
             auth=(self.config['username'], self.config['password'])
         )
         if not response.ok:
-            raise Exception('Sync error: ' + json.dumps(response.json()))
+            status = {
+                'status_code': response.status_code,
+                'status': 'fail',
+                'url': self.sync_url,
+                'data': response.text,
+            }
+            raise Exception('Sync error: ' + json.dumps(status))
         return response
 
 
