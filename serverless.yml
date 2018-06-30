@@ -8,7 +8,7 @@ provider:
 functions:
   sync:
     handler: sas/sync.handler
-    events: ${file(./config/${opt:config, 'example'}.yml):process}
+    events: ${file(./config/${opt:config, 'example'}.yml):sync}
 
 package:
   exclude:
