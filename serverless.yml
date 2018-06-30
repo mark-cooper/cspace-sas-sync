@@ -1,0 +1,11 @@
+service: cspace-sas-sync
+
+provider:
+  name: aws
+  region: us-west-2
+  runtime: python3.6
+  stage: dev
+
+functions:
+  sync:
+    handler: sas/sync.handler
