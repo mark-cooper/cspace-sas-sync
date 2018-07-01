@@ -4,6 +4,8 @@
 
 Serverless application to schedule CollectionSpace SAS sync.
 
+## Setup
+
 ```bash
 virtualenv venv --python=python3
 source venv/bin/activate
@@ -12,9 +14,32 @@ pip3 install -r requirements.txt
 npm install
 pytest
 
-sls invoke local -f sync -l -p config/example.json
-sls deploy [--aws-profile]
+sls invoke local -f sync -l -p test/example.json
+
+sls deploy [--config] [--aws-profile]
+# deploy example with options
+sls deploy --config ./config/dts.yml --aws-profile collectionspace
 ```
+
+## Config
+
+```yml
+sync:
+  - schedule:
+      # 6.30am UTC
+      rate: cron(30 6 * * ? *)
+      enabled: true
+      input:
+        services_url: ${ssm:cspace_sas_services_url}
+        authtype: $type
+        refname: urn:cspace:name($term)
+        username: ${ssm:cspace_sas_username~true}
+        password: ${ssm:cspace_sas_password~true}
+  - schedule:
+      # ...
+```
+
+The corresponding param store key / value should be created before deploy.
 
 ## License
 
