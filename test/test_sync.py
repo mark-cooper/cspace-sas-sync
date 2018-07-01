@@ -16,6 +16,12 @@ class CollectionSpaceSyncEventTestCase(unittest.TestCase):
     cspace_sync_event = CollectionSpaceSyncEvent(config)
     sync_url = 'https://core.collectionspace.org/cspace-services/vocabularies/urn:cspace:name(materialuse)/sync' # noqa
 
+    def test_should_return_default_params(self):
+        self.assertEqual(
+            self.cspace_sync_event.config['params']['forceSync'],
+            'true'
+        )
+
     def test_should_return_expected_build_url(self):
         self.assertEqual(
             self.cspace_sync_event.build_url(),

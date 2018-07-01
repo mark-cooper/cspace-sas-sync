@@ -16,8 +16,8 @@ class CollectionSpaceSyncEvent(object):
             'username': config['username'],
             'password': config['password'],
             'params': {
-                'impTimout': '3600',
-                'forceSync': 'true',
+                'impTimout': config.get('imp_timout', '3600'),
+                'forceSync': config.get('force_sync', 'true'),
             },
         }
         if 'params' in config:
