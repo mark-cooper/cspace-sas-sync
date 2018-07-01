@@ -1,5 +1,8 @@
 service: cspace-sas-sync
 
+custom:
+  config: ./config/example.yml
+
 provider:
   name: aws
   region: us-west-2
@@ -8,7 +11,7 @@ provider:
 functions:
   sync:
     handler: sas/sync.handler
-    events: ${file(./config/${opt:config, 'example'}.yml):sync}
+    events: ${file(${opt:config, self:custom.config}):sync}
 
 package:
   exclude:
