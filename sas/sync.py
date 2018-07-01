@@ -40,23 +40,19 @@ class CollectionSpaceSyncEvent(object):
             params=self.config['params'],
             auth=(self.config['username'], self.config['password'])
         )
-        if not response.ok:
-            status = {
-                'status_code': response.status_code,
-                'status': 'fail',
-                'url': self.sync_url,
-                'data': response.text,
-            }
-            raise Exception('Sync error: ' + json.dumps(status))
         return response
 
 
 def handler(event, context):
     cspace_sync_event = CollectionSpaceSyncEvent(event)
     response = cspace_sync_event.sync()
-    return {
+    status = {
         'status_code': response.status_code,
-        'status': 'ok',
         'url': cspace_sync_event.sync_url,
         'data': response.text,
     }
+    if response.ok:
+        logger.info(json.dumps(status))
+    else:
+        logger.error(json.dumps(status))
+    return status
