@@ -12,6 +12,7 @@ provider:
 
 functions:
   sync:
+    name: cspace-sas-sync
     handler: sas/sync.handler
     events: ${file(${opt:config, self:custom.config}):sync}
 

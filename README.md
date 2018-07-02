@@ -19,8 +19,8 @@ sls invoke local -f sync -l -p test/example.json
 sls deploy [--config] [--aws-profile]
 sls remove [--config] [--aws-profile]
 # deploy example with options
-sls deploy --config ./config/dts.yml --aws-profile collectionspace
-sls remove --config ./config/dts.yml --aws-profile collectionspace
+sls deploy --config ./config/sync.yml --aws-profile collectionspace
+sls remove --config ./config/sync.yml --aws-profile collectionspace
 ```
 
 ## Config
