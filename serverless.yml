@@ -4,9 +4,11 @@ custom:
   config: ./config/example.yml
 
 provider:
+  memorySize: 128
   name: aws
   region: us-west-2
   runtime: python3.6
+  timeout: 300
 
 functions:
   sync:
