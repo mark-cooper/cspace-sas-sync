@@ -163,3 +163,85 @@ sync:
         refname: urn:cspace:name(materialuse)
         username: ${ssm:cspace_risd_sas_username~true}
         password: ${ssm:cspace_risd_sas_password~true}
+### PARSONS SYNC
+  - schedule:
+      rate: cron(0 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: conceptauthorities
+        refname: urn:cspace:name(materialclassification_shared)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(5 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: materialauthorities
+        refname: urn:cspace:name(material_shared)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(10 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: orgauthorities
+        refname: urn:cspace:name(organization_shared)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(15 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: personauthorities
+        refname: urn:cspace:name(person_shared)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(20 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: vocabularies
+        refname: urn:cspace:name(additionalprocesses)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(25 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: vocabularies
+        refname: urn:cspace:name(additionalproperties)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(30 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: vocabularies
+        refname: urn:cspace:name(locationtype)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(35 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: vocabularies
+        refname: urn:cspace:name(materialformtype)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(40 6 * * ? *)
+      enabled: false
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: vocabularies
+        refname: urn:cspace:name(materialuse)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
