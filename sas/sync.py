@@ -20,10 +20,6 @@ class CollectionSpaceSyncEvent(object):
                 'forceSync': config.get('force_sync', 'true'),
             },
         }
-        if 'params' in config:
-            self.config['params'] = self.config['params'].update(
-                config['params']
-            )
 
     def build_url(self):
         self.sync_url = os.path.join(
@@ -49,6 +45,7 @@ def handler(event, context):
     status = {
         'status_code': response.status_code,
         'url': cspace_sync_event.sync_url,
+        'params': cspace_sync_event.config['params'],
         'data': response.text,
     }
     if response.ok:
