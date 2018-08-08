@@ -1,7 +1,7 @@
 {
   "services_url": "https://nightly.collectionspace.org/cspace-services",
   "authtype": "vocabularies",
-  "refname": "urn:cspace:name(language)",
+  "refname": "urn:cspace:name(languages)",
   "username": "admin@core.collectionspace.org",
   "password": "Administrator"
 }
