@@ -34,7 +34,8 @@ class CollectionSpaceSyncEvent(object):
         response = requests.post(
             self.build_url(),
             params=self.config['params'],
-            auth=(self.config['username'], self.config['password'])
+            auth=(self.config['username'], self.config['password']),
+            timeout=300
         )
         return response
 
@@ -44,8 +45,7 @@ def handler(event, context):
     response = cspace_sync_event.sync()
     status = {
         'status_code': response.status_code,
-        'url': cspace_sync_event.sync_url,
-        'params': cspace_sync_event.config['params'],
+        'url': response.url,
         'data': response.text,
     }
     if response.ok:
