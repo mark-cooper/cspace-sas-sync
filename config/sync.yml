@@ -81,6 +81,15 @@ sync:
         refname: urn:cspace:name(materialuse)
         username: ${ssm:cspace_gsd_sas_username~true}
         password: ${ssm:cspace_gsd_sas_password~true}
+  - schedule:
+      rate: cron(45 4 * * ? *)
+      enabled: true
+      input:
+        services_url: ${ssm:cspace_gsd_sas_url}
+        authtype: vocabularies
+        refname: urn:cspace:name(materialform)
+        username: ${ssm:cspace_gsd_sas_username~true}
+        password: ${ssm:cspace_gsd_sas_password~true}
 ### RISD SYNC
   - schedule:
       rate: cron(0 5 * * ? *)
@@ -163,6 +172,15 @@ sync:
         refname: urn:cspace:name(materialuse)
         username: ${ssm:cspace_risd_sas_username~true}
         password: ${ssm:cspace_risd_sas_password~true}
+  - schedule:
+      rate: cron(45 5 * * ? *)
+      enabled: true
+      input:
+        services_url: ${ssm:cspace_risd_sas_url}
+        authtype: vocabularies
+        refname: urn:cspace:name(materialform)
+        username: ${ssm:cspace_risd_sas_username~true}
+        password: ${ssm:cspace_risd_sas_password~true}
 ### PARSONS SYNC
   - schedule:
       rate: cron(0 6 * * ? *)
@@ -243,5 +261,14 @@ sync:
         services_url: ${ssm:cspace_parsons_sas_url}
         authtype: vocabularies
         refname: urn:cspace:name(materialuse)
+        username: ${ssm:cspace_parsons_sas_username~true}
+        password: ${ssm:cspace_parsons_sas_password~true}
+  - schedule:
+      rate: cron(45 6 * * ? *)
+      enabled: true
+      input:
+        services_url: ${ssm:cspace_parsons_sas_url}
+        authtype: vocabularies
+        refname: urn:cspace:name(materialform)
         username: ${ssm:cspace_parsons_sas_username~true}
         password: ${ssm:cspace_parsons_sas_password~true}
