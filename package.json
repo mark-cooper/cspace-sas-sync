@@ -1,5 +1,9 @@
 {
   "name": "cspace-sas-sync",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lyrasis/cspace-sas-sync.git"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
