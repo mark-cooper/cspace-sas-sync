@@ -1,5 +1,7 @@
 service: cspace-sas-sync
 
+# TODO: https://www.serverless.com/framework/docs/providers/aws/guide/services#version-pinning
+
 custom:
   sas_config: ./config/example.yml
 
@@ -14,7 +16,7 @@ functions:
   sync:
     name: cspace-sas-sync
     handler: sas/sync.handler
-    events: ${file(${opt:sas_config, self:custom.sas_config}):sync}
+    events: ${file(${env:SAS_CFG, self:custom.sas_config}):sync}
 
 package:
   exclude:

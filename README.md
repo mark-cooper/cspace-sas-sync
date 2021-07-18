@@ -17,11 +17,11 @@ pytest
 
 sls invoke local -f sync -l -p test/example.json
 
-sls deploy [--sas_config] [--aws-profile]
-sls remove [--sas_config] [--aws-profile]
+AWS_PROFILE=$profile SAS_CFG=$file sls deploy
+AWS_PROFILE=$profile SAS_CFG=$file sls remove
 # deploy example with options
-sls deploy --sas_config ./config/sync.yml --aws-profile collectionspace
-sls remove --sas_config ./config/sync.yml --aws-profile collectionspace
+AWS_PROFILE=collectionspace SAS_CFG=./config/sync.yml sls deploy
+AWS_PROFILE=collectionspace SAS_CFG=./config/sync.yml sls remove
 ```
 
 ## Config
